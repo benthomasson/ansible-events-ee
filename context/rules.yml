@@ -1,0 +1,13 @@
+---
+- name: Automatic Remediation Demo Rules
+  hosts: all
+  sources:
+    - name: webhook
+      webhook:
+        port: 5001
+        host: "0.0.0.0"
+  rules:
+    - name: debug
+      condition: event.payload is defined
+      action:
+        debug:

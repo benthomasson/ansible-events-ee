@@ -1,0 +1,16 @@
+---
+version: 1
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+additional_build_steps:
+  prepend: |
+    RUN pip3 install --upgrade pip setuptools
+  append:
+    - RUN ls -la /etc
+    - COPY sources sources
+    - COPY modules modules
+    - COPY rules.yml rules.yml
+    - COPY inventory.yml inventory.yml
