@@ -10,8 +10,8 @@
       when: sha is defined
     - name: build with ansible-builder
       shell:
-        cmd: ansible-builder build --tag quay.io/bthomass/events-demo:latest --container-runtime docker
+        cmd: ansible-builder build --tag quay.io/bthomass/events-demo-ci-cd:latest --container-runtime docker
     - name: push to quay
       shell:
-        cmd: docker push quay.io/bthomass/events-demo:latest
+        cmd: docker push quay.io/bthomass/events-demo-ci-cd:latest
 ...

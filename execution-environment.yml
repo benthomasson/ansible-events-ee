@@ -11,6 +11,5 @@ additional_build_steps:
   append:
     - RUN ls -la /etc
     - COPY sources sources
-    - COPY modules modules
     - COPY rules.yml rules.yml
     - COPY inventory.yml inventory.yml
