@@ -11,7 +11,8 @@ docker-build:
 	docker build -f context/Dockerfile -t quay.io/bthomass/events-demo-ci-cd:latest context
 
 run:
-	docker run -it --env-file env quay.io/bthomass/events-demo-ci-cd:latest ansible-events github-ci-cd-rules.yml -i inventory.yml -S sources --env-vars connection_str,queue_name,repo_name,gh_user,gh_token --debug
+	docker rm cicd
+	docker run --name cicd --privileged -v /var/run/docker.sock:/var/run/docker.sock -it --env-file env quay.io/bthomass/events-demo-ci-cd:latest ansible-events github-ci-cd-rules.yml -i inventory.yml -S sources --env-vars connection_str,queue_name,repo_name,gh_user,gh_token --debug 
 
 shell:
 	docker run -it  --env-file env quay.io/bthomass/events-demo-ci-cd:latest /bin/bash
