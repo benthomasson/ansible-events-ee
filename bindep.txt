@@ -1,4 +1,6 @@
 subversion [platform:rpm]
+gcc [platform:rpm]
 subversion [platform:dpkg]
 gcc [compile]
 python38-devel [compile]
+python38-devel [platform:rpm]

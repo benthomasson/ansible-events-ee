@@ -9,7 +9,12 @@ additional_build_steps:
   prepend: |
     RUN pip3 install --upgrade pip setuptools
   append:
+    - RUN mkdir -p sources event_filters
     - RUN ls -la /etc
-    - COPY sources sources
-    - COPY rules.yml rules.yml
-    - COPY inventory.yml inventory.yml
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/sources/azure_service_bus.py /runner/sources/
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/github-ci-cd-rules.yml /runner/
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/continuous_integration.yml /runner/
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/continuous_deployment.yml /runner/
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/inventory.yml /runner/
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/event_filters/dashes_to_underscores.py /runner/event_filters/
+    - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/event_filters/json_filter.py /runner/event_filters/
