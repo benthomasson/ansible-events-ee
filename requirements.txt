@@ -16,3 +16,4 @@ gevent==21.12.0
 redis==4.1.4
 virtualenv==20.13.4
 ansible-builder==1.0.1
+git+https://github.com/benthomasson/ansible-events.git#egg=ansible-events

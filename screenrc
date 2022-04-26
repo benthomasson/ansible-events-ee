@@ -1,0 +1,4 @@
+zombie qr
+screen bash
+#chdir /Users/ben/git/ci-cd-ee
+screen ./run-forever.sh

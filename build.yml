@@ -3,16 +3,6 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: set sha for ansible-events
-      lineinfile:
-        path: "{{playbook_dir}}/requirements.txt"
-        line: "git+https://github.com/benthomasson/ansible-events.git@{{sha}}#egg=ansible-events"
-      when: sha is defined
-    - name: set to install latest
-      lineinfile:
-        path: "{{playbook_dir}}/requirements.txt"
-        line: "git+https://github.com/benthomasson/ansible-events.git#egg=ansible-events"
-      when: sha is not defined
     - name: build with ansible-builder
       shell:
         cmd: ansible-builder build --tag quay.io/bthomass/events-demo-ci-cd:latest --container-runtime docker

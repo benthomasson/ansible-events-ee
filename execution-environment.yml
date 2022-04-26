@@ -20,3 +20,4 @@ additional_build_steps:
     - ADD https://raw.githubusercontent.com/benthomasson/ci-cd-demo/main/event_filters/json_filter.py /runner/event_filters/
     - RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
     - RUN yum install -y docker-ce docker-ce-cli containerd.io
+    - RUN pip install git+https://github.com/benthomasson/ansible-events.git#egg=ansible-events
