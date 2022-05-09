@@ -19,12 +19,8 @@ To run the example `hello_events.yml` use the following command:
 	docker run -it quay.io/bthomass/ansible-events:latest ansible-events --rules benthomasson.eda.hello_events -i inventory.yml
 
 
-The hello events example is contained in this collection:
-
-    https://github.com/benthomasson/benthomasson-eda/
+The hello events example is contained in this collection: https://github.com/benthomasson/benthomasson-eda/
 
 
 
-Ansible Events cane be found here:
-
-    https://github.com/benthomasson/ansible-events
+Ansible Events cane be found here: https://github.com/benthomasson/ansible-events
