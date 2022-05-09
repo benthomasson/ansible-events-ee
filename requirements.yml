@@ -1,5 +1,4 @@
 ---
 collections:
-  - benthomasson.desired_state
   - community.general
   - benthomasson.eda
