@@ -1,20 +1,22 @@
 
 .PHONY: all build
 
-
+IMAGE_TAG = quay.io/bthomass/ansible-events:latest
 all: build
 
 build:
-	ansible-builder build --tag quay.io/bthomass/ansible-events:latest --container-runtime docker
+	ansible-builder build --tag $(IMAGE_TAG) --container-runtime docker
 
 docker-build:
-	docker build -f context/Dockerfile -t quay.io/bthomass/ansible-events:latest context
+	docker build -f context/Dockerfile -t $(IMAGE_TAG) context
 
 run:
-	docker run -it quay.io/bthomass/ansible-events:latest ansible-events --rules benthomasson.eda.hello_events -i inventory.yml
+	docker run -it $(IMAGE_TAG) --rules benthomasson.eda.hello_events -i inventory.yml
 
+run_drools:
+	docker run --env JAVA_HOME=/usr/lib/jvm/java-17-openjdk --env RULES_ENGINE=drools -it $(IMAGE_TAG) ansible-events --rules benthomasson.eda.hello_events -i inventory.yml
 shell:
-	docker run -it  quay.io/bthomass/ansible-events:latest /bin/bash
+	docker run -it  $(IMAGE_TAG) /bin/bash
 
 push:
-	docker push quay.io/bthomass/ansible-events:latest
+	docker push $(IMAGE_TAG)
